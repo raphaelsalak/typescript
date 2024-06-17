@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Person } from './Person'
+import { User } from './Person'
+import { UserProvider } from './UserContextProvider'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,12 +20,13 @@ function App() {
  //Using it in a function
 
  //Generics like using in a usehook()
+ const [data, setdata] = useState<boolean | null>(null)
  
 
   return (
-    <>
-      <Person name={"Bob"} age={22} isMarried={false} />{" "}
-    </>
+      <UserProvider>
+        <User name={"Bob"} age={22} isMarried={false} />{" "}
+      </UserProvider>
   )
 }
 
